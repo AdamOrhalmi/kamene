@@ -110,7 +110,7 @@ public class ConsoleUI implements Serializable {
                     save();
                     return;
             }
-            if(!moved)
+            if (!moved)
                 System.err.println("can't move there!");
         }
     }

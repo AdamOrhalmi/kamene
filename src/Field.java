@@ -1,17 +1,12 @@
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 public class Field implements Serializable {
     private final int rows;
     private final int columns;
     private int stonesNr;
     private Stone[][] stones;
-       private Random random = new Random();
+    private Random random = new Random();
 
 
     public Field(int rows, int columns) {
@@ -27,7 +22,7 @@ public class Field implements Serializable {
     }
 
     private void setStones() {
-      this.stonesNr = getRows() * getColumns();
+        this.stonesNr = getRows() * getColumns();
 
         stones = new Stone[getRows()][getColumns()];
         int stonesPlaced = 0;
@@ -61,10 +56,10 @@ public class Field implements Serializable {
 
     public boolean isSolved() {
         int count = 1;
-        for (int x = 0; x < getRows(); x++) {
-            for (int y = 0; y < getColumns(); y++) {
-                if(stones[x][y].getValue()!=count){
-                   return false;
+        for (int row = 0; row < getRows(); row++) {
+            for (int column = 0; column < getColumns(); column++) {
+                if (stones[row][column].getValue() != count) {
+                    return false;
                 }
                 count++;
             }
@@ -74,10 +69,10 @@ public class Field implements Serializable {
     }
 
     public Coords getNullStonePos() {
-        for (int x = 0; x < getRows(); x++) {
-            for (int y = 0; y < getColumns(); y++) {
-                if (stones[x][y].getValue() == stonesNr) {
-                    return new Coords(x, y);
+        for (int row = 0; row < getRows(); row++) {
+            for (int column = 0; column < getColumns(); column++) {
+                if (stones[row][column].getValue() == stonesNr) {
+                    return new Coords(row, column);
                 }
             }
         }
@@ -103,9 +98,9 @@ public class Field implements Serializable {
 
     public void solve() {
         int i = 1;
-        for (int x = 0; x < getRows(); x++) {
-            for (int y = 0; y < getColumns(); y++) {
-                stones[x][y] = new Stone(i);
+        for (int row = 0; row < getRows(); row++) {
+            for (int column = 0; column < getColumns(); column++) {
+                stones[row][column] = new Stone(i);
                 i++;
             }
         }

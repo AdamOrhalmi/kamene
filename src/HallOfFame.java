@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class HallOfFame {
-   private List<HighScore> highScores = new ArrayList<>();
+    private List<HighScore> highScores = new ArrayList<>();
 
 
     public void addHighScore(String name, int time) {
